@@ -1,0 +1,71 @@
+nav {
+    @include transition (all 0.6s ease-in-out); 
+    //@include transition-timing-function (ease-in-out);
+    //@include transition-duration(0.6s);
+
+    width: 15%; 
+    position: absolute;
+    top: 0;
+    left: 15%;
+    padding-right: 10px;
+    margin-top: 28px;
+    display: none;
+
+    &.sideActive {
+        left: 0;
+    }
+
+    ul {
+        margin: 0;
+        padding: 0;
+        li {
+            list-style: none;
+            
+            span {
+                @include transition (all 0.3s ease-in-out);
+
+                text-align: $left-align;
+                padding: 0;
+                margin: 0;
+                margin-bottom: 5px;
+                color: $white;
+                cursor: pointer;
+                display: block;
+                background: $turquoise;
+                padding: 10px;
+                text-transform: uppercase;
+                font-size: 12px;
+                position: relative;
+                overflow: hidden;
+                z-index: 1;
+
+                &.active {
+                    text-decoration: none;
+                    background: $black;
+                    padding-left: 15px;
+                }
+                &:hover {
+                    //border: 0px solid transparent !important;
+                    text-decoration: none;
+                    padding-left: 15px;
+                    &:before {
+                        width: 100%;
+                    }
+                }
+                &:before {
+                    @include transition (all 0.3s ease-in-out);
+
+                    content: '';
+                    display: block;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    height: 100%;
+                    width: 0;
+                    background: $black;
+                    z-index: -1;
+                }
+            }
+        }
+    }
+}

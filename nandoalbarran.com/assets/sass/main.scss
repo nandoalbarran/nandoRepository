@@ -1,0 +1,51 @@
+//IE library
+@import 'libraries/_normalize';
+
+// style_guide folder
+@import 'style_guide/colors';
+@import 'style_guide/typography';
+@import 'style_guide/alignment';
+
+// functionalities
+@import 'mixins';
+
+// font-face
+@include font-face('Montserrat', 'montserrat-regular-webfont', 'Montserrat', 'serif');
+@include font-face('Fontawesome', 'fontawesome-webfont', 'FontAwesome', 'serif');
+
+*, *::before, *::after {
+    @include box-sizing(inherit);
+    outline: none;
+    border:none;
+}
+
+html {
+    @include box-sizing(border-box);
+    width: 100%;
+    padding-bottom: 20px;
+    background: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4IiBoZWlnaHQ9IjgiPgo8cGF0aCBkPSJNLTIgMTBMMTAgLTJaTTEwIDZMNiAxMFpNLTIgMkwyIC0yIiBzdHJva2U9IiMyMjIiIHN0cm9rZS13aWR0aD0iNC41Ij48L3BhdGg+Cjwvc3ZnPg=="),url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPgo8bGluZWFyR3JhZGllbnQgaWQ9ImciIHgyPSIxIiB5Mj0iMSI+CjxzdG9wIHN0b3AtY29sb3I9IiNGMTkiPjwvc3RvcD4KPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjMENGIj48L3N0b3A+CjwvbGluZWFyR3JhZGllbnQ+CjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZykiPjwvcmVjdD4KPC9zdmc+");
+
+    body {
+        font-family: "Montserrat";
+        line-height: 1.42857143;
+        font-size: 12px;
+        position: relative;
+        margin: 0 auto;
+
+        main {
+            @include transition (all 0.3s ease-in-out);
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        object { display: none; }
+    }
+}
+
+// components
+@import 'navigation';
+@import 'section';
+@import 'footer';
+
+// media queries
+@import 'mediaQueries';

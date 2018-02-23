@@ -1,0 +1,134 @@
+@media (max-width: 430px) {
+    section:first-of-type h1 {
+        font-size: 26px;
+    }
+
+    footer {
+        span {
+            display: block;
+            float: none;
+            padding-bottom: 2px;
+            text-align: center;
+        }
+    }
+}
+
+@media (min-width: 430px) {
+    footer {
+        width: 960px;
+        position: relative;
+        margin: 0 auto;
+        padding-bottom: 25px;
+
+        a, span {
+            color: $white;
+        }
+
+        span {
+            display: inline;
+
+            &:first-of-type {
+                float: left;
+            }
+
+            &:last-of-type {
+                float: right;
+            }
+
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    body, main, footer {
+        padding: 0 10px;
+    }
+}
+
+@media (min-width: 768px) {
+    body {
+        width: 750px;
+        
+        main { float: left; }
+    }
+}
+
+@media (max-width: 992px) {
+    section {
+        position: relative;
+        opacity: 1;
+        overflow-y: hidden;
+    }
+    footer {
+        width: 100%;
+    }
+}
+
+@media (min-width: 992px) {
+    body {
+
+        width: 970px;
+        min-height: 850px;
+
+        main {
+            margin-top: 30px;
+            min-height: 850px;
+            
+            nav {
+                display: block;
+            }
+
+            section {
+                position: absolute;
+                left: 30%;
+                width: 42%;
+                height: 770px;
+                padding: 45px;
+                &:first-of-type {
+                    &.sideActive {
+                        left: 15%;
+                    }
+
+                }
+
+                &:first-of-type { opacity: 1; }
+
+                &:not(:first-of-type) {
+                    opacity: 0;
+
+                    &.sideActive {
+                        margin-left: 10px;
+                        left: 57%;
+                    }
+                }
+
+                &:nth-of-type(2) {
+                    overflow-y: scroll;
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: 1200px) {
+    body {
+        width: 1170px;
+        min-height: 800px;
+
+        main {
+            min-height: 800px;
+
+            section {
+                position: absolute;
+                left: 30%;
+                height: 700px !important;
+            }
+        }
+    }
+}
+
+@media (min-width: 1400px) {
+    main > * {
+        margin-top: 40px;
+    }
+}

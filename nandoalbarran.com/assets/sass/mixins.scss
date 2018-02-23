@@ -1,0 +1,125 @@
+///////// Mixins
+@mixin gradient_horizontal($color1, $color2, $color3) {
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/$color1+0,7db9e8+100 */
+    background: $color1; /* Old browsers */
+    background: -moz-linear-gradient(left, $color1 0%, $color2 50%, $color3 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(left, $color1 0%, $color2 50%, $color3 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to right, $color1 0%, $color2 50%, $color3 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    //filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='$color1', endColorstr='$color3', GradientType=1); /* IE6-9 */
+}
+
+@mixin box-sizing($box) {
+    -webkit-box-sizing: $box;
+    -moz-box-sizing: $box;
+    box-sizing: $box;
+}
+
+@mixin border-radius($radius) {
+    -webkit-border-radius: $radius;
+    -moz-border-radius: $radius;
+    border-radius: $radius;
+}
+
+@mixin box-shadow($shadow) {
+    -webkit-box-shadow: $shadow;
+    -moz-box-shadow: $shadow;
+    box-shadow: $shadow;
+}
+
+@mixin transition($transition) {
+    -moz-transition:    $transition;
+    -o-transition:      $transition;
+    -webkit-transition: $transition;
+    -ms-transition:     $transition;
+    transition:         $transition;
+}
+
+@mixin transition-duration($duration) {
+    -moz-transition-duration:    $duration;
+    -o-transition-duration:      $duration;
+    -webkit-transition-duration: $duration;
+    -ms-transition:              $duration;
+    transition-duration:         $duration;
+}
+
+@mixin animation($animation) {
+    -webkit-animation: $animation;
+    -moz-animation: $animation;
+    -ms-animation: $animation;
+    -o-animation: $animation;
+    animation: $animation; 
+}
+
+@mixin transform($transforms) {
+    -moz-transform: $transforms;
+    -o-transform: $transforms;
+    -ms-transform: $transforms;
+    -webkit-transform: $transforms;
+    transform: $transforms;
+}
+
+@mixin scale($scale) {
+    @include transform(scale($scale));
+}
+
+@mixin rotate ($deg, $duration) {
+    @include transform(rotate(#{$deg}deg));
+    @include transition-duration(#{$duration});
+}
+
+@mixin font-smoothing($value: antialiased) {
+    @if $value == antialiased {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+    @else {
+        -webkit-font-smoothing: subpixel-antialiased;
+        -moz-osx-font-smoothing: auto;
+    }
+}
+
+@mixin keyframes($animation-name) {
+    @-webkit-keyframes #{$animation-name} {
+        @content;
+    }
+    @-moz-keyframes #{$animation-name} {
+        @content;
+    }  
+    @-ms-keyframes #{$animation-name} {
+        @content;
+    }
+    @-o-keyframes #{$animation-name} {
+        @content;
+    }  
+    @keyframes #{$animation-name} {
+        @content;
+    }
+}
+
+@mixin font-face($style-name, $file, $family, $category:"") {
+    $filepath: "../fonts/" + $family + "/" + $file;
+    @font-face {
+        font-family: "#{$style-name}";
+        src: url($filepath + ".eot");
+        src: url($filepath + ".eot?#iefix") format('embedded-opentype'), url($filepath + ".woff") format('woff'), url($filepath + ".ttf")  format('truetype'), url($filepath + ".svg#" + $style-name + "") format('svg');
+    }
+    %#{$style-name} {
+        font: {
+            @if $category != "" {
+                family: "#{$style-name}", #{$category};
+            }
+            @else {
+                family: "#{$style-name}";
+                weight: normal;
+            }
+        }
+    }
+}
+
+@mixin background($imgpath) {
+    background: {
+        image: url("../images/" + $imgpath + ".png");
+        position: center center;
+        size: cover;
+    }
+}

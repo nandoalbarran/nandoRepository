@@ -1,0 +1,20 @@
+@mixin section_left_head {
+    text-align: $center-align;
+    font-weight: bold;
+}
+
+@mixin section_left_heading_1 {
+    font-size: 36px;
+    line-height: 36px;
+}
+
+@mixin section_left_heading_3 {
+    font-size: 17px;
+    line-height: 14px;
+}
+
+@mixin section_career_heading_2 {
+    font-size: 20px;
+    line-height: 12px;
+    margin-bottom: 0px;
+}
